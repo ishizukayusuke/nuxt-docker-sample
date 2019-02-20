@@ -1,7 +1,7 @@
 ## NuxtJs概要
 * nuxtjsとは  
 　→nextjs(react)をリスペクトして生まれた最近話題のFW  
-　→Vueの主要ライブラリを内包したフルスタックフレームワーク  
+　→Vueの主要ライブラリを内包したフルスタックフレームワーク  
 　→SSRできる！
 * https://ja.nuxtjs.org/
 * https://ssr.vuejs.org/ja/
@@ -10,15 +10,15 @@
 
 * SEOバッチリ
 
-* head・metaタグをnuxt.config.jsでデフォルト設定
+* head・metaタグをnuxt.config.jsでデフォルト設定
 
-* ビルドプロセス隠蔽
+* ビルドプロセス隠蔽
 　→煩雑だったwebpackやらテンプレートコンパイルやらその他プラグインをいい感じにしてくれる
 
 * Vue(Router Vuex Server Renderer vue-meta)が内包されている
 
 * 独自レイヤの実装(nuxtjs自体が裏にサーバー・その他ミドルウェアを持っている)
-　→SSRはもちろん、301/302リダイレクト・描画前にVuex等に必要なデータを格納しておける  
+　→SSRはもちろん、301/302リダイレクト・描画前にVuex等に必要なデータを格納しておける  
 
 * 規約を守って開発するFW
 　→具体例は後述。規約を守るとルーティングとかいい感じにやってくれて高速開発できる
@@ -26,12 +26,12 @@
 * pwa公式対応
 
 ## サンプルコード入手
-実際に一から開発する際は「$ npx create-nuxt-app [project-name]」でいける。  
+実際に一から開発する際は「$ npx create-nuxt-app [project-name]」でいける。  
 
 ```$ git clone git@github.com:ishizukayusuke/nuxt-docker-sample.git```
 
 ## 動かす
-docker (すいません、ホットリロード不可。。)
+docker (すいません、ホットリロード不可。。)
 ```
 ビルド
 $ docker image build -t nuxt-app:latest .
@@ -51,7 +51,7 @@ $ docker run -d -p 3000:3000 --name nuxt-app nuxt-app:latest
 
 ## ルーティングを試してみる
 他にも実装で試してみたいものたくさんありますが、すいませんまたの機会に。。。
-
+
 * 「pages/wedding/index.vue」作成
 ```
 <template>
@@ -72,23 +72,23 @@ $ docker run -d -p 3000:3000 --name nuxt-app nuxt-app:latest
 * 該当するテンプレート「pages/index.vue」が呼ばれる？
 * scriptタグないの処理が走る「fetchItems」（store/index.js）される？
 * store/index.js「fetchItems」が呼ばれ（qiitaのapi叩いてます）結果がstoreにコミットされる？  
-　※ ajaxではない。axios(nodejs側でapi叩いてる)
+　※ ajaxではない。axios(nodejs側でapi叩いてる)
 * 「pages/index.vue」のテンプレートタグないの内容がstoreの内容をもとに決まり、描画される。  
 ここまで全てサーバーサイド。
 
 ## デプロイ
-nuxtjsでssrする場合サーバーサイドのモジュールも成果物に含まれるので、  
+nuxtjsでssrする場合サーバーサイドのモジュールも成果物に含まれるので、  
 index.htmlとかにしてs3に配置、、はできない。  
 
-[公式](https://nuxtjs.org/faq/deployment-aws-s3-cloudfront)みた感じawsで上手いことやってる解説はなし。
+[公式](https://nuxtjs.org/faq/deployment-aws-s3-cloudfront)みた感じawsで上手いことやってる解説はなし。
 
 
-調べた感じの代案。とりあえずnodejsが動けばnuxtjsの実行環境としては良いらしい。  
-サーバーサイドのAPIに関しても今まで通りjson返却すればよし(API側でhtml返さなきゃいけないのかと思ってた。。。。)。
+調べた感じの代案。とりあえずnodejsが動けばnuxtjsの実行環境としては良いらしい。  
+サーバーサイドのAPIに関しても今まで通りjson返却すればよし(API側でhtml返さなきゃいけないのかと思ってた。。。。)。
 
 * docker化  
-　→SSRサーバーもろともDokcerコンテナ化してecsなりeksなりでデプロイ  
-　→やってみたのですがメモリの割り当て128Mとかだと起動に失敗する
+　→SSRサーバーもろともDokcerコンテナ化してecsなりeksなりでデプロイ  
+　→やってみたのですがメモリの割り当て128Mとかだと起動に失敗する
 
 * api gatway + lamda  
 　→あんまよくわかってないですが、apigateway結構あまりどころが多いらしい。
@@ -106,9 +106,9 @@ SSR以外にも対応したモードがある。「npx create-nuxt-app [project-
 * Universalモード
 　→デフォルト。SSRをサポートしたモード
 * Generateモード
-　→全てのSSRルートをレンダリングしてから、静的ページとしてindex.htmlを吐き出すモード  
-　→静的ページだがSEOメタなどのメタ情報を十分に含んだページが作成可能。nuxtjsの高機能・高速開発はそのままできる。
+　→全てのSSRルートをレンダリングしてから、静的ページとしてindex.htmlを吐き出すモード  
+　→静的ページだがSEOメタなどのメタ情報を十分に含んだページが作成可能。nuxtjsの高機能・高速開発はそのままできる。
 * SPAモード
-　→従来通りのSPAページ作成。nuxtjsの高機能・高速開発はそのままできる。
+　→従来通りのSPAページ作成。nuxtjsの高機能・高速開発はそのままできる。
 
 静的なページの作成も非常に効率的に行える。
