@@ -93,7 +93,7 @@ index.htmlとかにしてs3に配置、、はできない。
 * api gatway + lamda  
 　→あんまよくわかってないですが、apigateway結構あまりどころが多いらしい。
 
-* Google App Engine
+* Google App Engine  
 　→nodejsの実行環境を公式にサポートしているのでawsにこだわらないのであればこちらが無難らしい。
 
 * firebase
@@ -103,9 +103,9 @@ index.htmlとかにしてs3に配置、、はできない。
 SSR以外にも対応したモードがある。「npx create-nuxt-app [project-name]」やった時に選択可能。  
 
 
-* Universalモード
+* Universalモード  
 　→デフォルト。SSRをサポートしたモード
-* Generateモード
+* Generateモード  
 　→全てのSSRルートをレンダリングしてから、静的ページとしてindex.htmlを吐き出すモード  
 　→静的ページだがSEOメタなどのメタ情報を十分に含んだページが作成可能。nuxtjsの高機能・高速開発はそのままできる。
 * SPAモード
