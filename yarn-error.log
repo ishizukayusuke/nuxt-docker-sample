@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/ishizukayusuke/.nodebrew/node/v8.10.0/bin/node /Users/ishizukayusuke/.nodebrew/current/bin/yarn dev
+  /Users/ishizukayusuke/.nodebrew/node/v8.10.0/bin/node /Users/ishizukayusuke/.nodebrew/current/bin/yarn nuxt start
 
 PATH: 
-  /_develop/bin:/usr/local:/usr/local/opt/grep/libexec/gnubin:/develop/tool/apache-maven-3.5.2/bin:/Users/ishizukayusuke/.nodebrew/current/bin:/Users/ishizukayusuke/visitors:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+  /usr/local/opt/grep/libexec/gnubin:/develop/tool/apache-maven-3.5.2/bin:/Users/ishizukayusuke/.nodebrew/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
 Yarn version: 
   1.5.1
@@ -7915,9 +7915,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 127
+  Exit code: 1
   Command: sh
-  Arguments: -c nuxt
+  Arguments: -c /Users/ishizukayusuke/dev/my-first-nuxt-app/node_modules/.bin/nuxt start
   Directory: /Users/ishizukayusuke/dev/my-first-nuxt-app
   Output:
   
