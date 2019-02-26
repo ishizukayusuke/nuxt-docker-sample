@@ -31,7 +31,12 @@
 ```$ git clone git@github.com:ishizukayusuke/nuxt-docker-sample.git```
 
 ## 動かす
-docker (すいません、ホットリロード不可。。)
+docker-compose  
+```
+$ docker-compose up 
+```
+
+docker
 ```
 ビルド
 $ docker image build -t nuxt-app:latest .
